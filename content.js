@@ -4,6 +4,10 @@ function getCountryCode(url) {
 }
 
 function fetchCartCode(countryCode) {
+  if (!countryCode || countryCode.length != 2) {
+    console.log("Invalid country code:", countryCode);
+    return;
+  }
   const apiUrl = `https://${window.location.hostname}/tokocommercewebservices/v2/${countryCode}/users/current/carts/current?fields=DEFAULT`;
   console.log(apiUrl);
   
